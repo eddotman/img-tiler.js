@@ -3,16 +3,42 @@
 <html>
 	<head>
 	<title>img-tiler.js</title>
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/styles.css">
 	</head>
 
 	<body>
+	<br>
 		<div class="container">
-			<canvas id="c" width="500" height="500"></canvas>	
+			<div class="jumbotron">
+				<h1>img-tiler.js</h1>
+			</div>
+			<br>
+			<div class="col-sm-12 text-center">
+				<h2>Raw Image</h2>
+				<img id="img1" src="img/space.jpg" width="500" style="display:none">
+				<canvas id="c1" width="500" height="400"></canvas>
+				<h2>Sliced Image</h2>
+				<canvas id="c2" width="600" height="500"></canvas>	
+			</div>
+			<br>
+			<div class="jumbotron">
+				<div class="row">
+					<div class="col-sm-4 text-center">
+						<p>Rows: <input type-"text" id="rows" value="8"></p>
+					</div>
+					<div class="col-sm-4 text-center">
+						<p>Columns: <input type-"text" id="cols" value="6"></p>
+					</div>
+					<div class="col-sm-4 text-center">
+						<p><button id="preview" class="btn btn-success" >Preview</button></p>
+					</div>
+				</div>
+			</div>
+			<div id="test">
+			</div>
 		</div>
-
-		<script src="jquery-2.0.3.min.js"></script>
-		<script src="fabric.all.min.js"></script>
-		<script src="img-tiler.js"></script>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/img-tiler.js"></script>
 	</body>
 </html>
