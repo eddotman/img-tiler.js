@@ -10,33 +10,73 @@
 	<body>
 	<br>
 		<div class="container">
-			<div class="jumbotron">
+			<div class="jumbotron text-center head-title">
 				<h1>img-tiler.js</h1>
 			</div>
 			<br>
-			<div class="col-sm-12 text-center">
-				<h2>Raw Image</h2>
-				<img id="img1" src="img/space.jpg" style="display:none">
-				<canvas id="c1" width="500" height="400" ></canvas>
-				<h2>Sliced Image</h2>
-				<canvas id="c2" width="600" height="500"></canvas>	
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<div class="jumbotron">
+						<h1>Demo</h1>
+					</div>
+					<h2>Raw Image</h2>
+					<img id="img1" src="img/space.jpg" style="display:none">
+					<canvas id="c1" width="500" height="400" ></canvas>
+					<h2>Sliced Image</h2>
+					<canvas id="c2" width="600" height="500"></canvas>	
+				</div>
 			</div>
 			<br>
-			<div class="jumbotron">
+			<div class="jumbotron no-back">
 				<div class="row">
 					<div class="col-sm-4 text-center">
 						<p>Rows: <input type-"text" id="rows" value="4"></p>
 					</div>
 					<div class="col-sm-4 text-center">
-						<p>Columns: <input type-"text" id="cols" value="4"></p>
+						<p>Cols: <input type-"text" id="cols" value="4"></p>
 					</div>
 					<div class="col-sm-4 text-center">
 						<p><button id="preview" class="btn btn-success" >Preview</button></p>
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="jumbotron text-center">
+						<h1>Installation</h1>
+					</div>
+					<ol>
+						<li>Make sure you have <code>jQuery</code> included.</li>
+						<li>Include <code>img-tiler.js</code>.</li>
+						<li>Include the following in your HTML: <br>
+							<div class="codeblock">
+								<code class="prettyprint">
+									&lt;img id="img1" src="img/YOUR_IMG_HERE.jpg" style="display:none"&gt; <br>
+									&lt;canvas id="c1" width="xxx" height="yyy" &gt;&lt;/canvas&gt; <br>
+									&lt;canvas id="c2" width="xxx" height="yyy"&gt;&lt;/canvas&gt; <br>
+									&lt;input type-"text" id="rows"&gt; <br>
+									&lt;input type-"text" id="cols"&gt;
+								</code>
+							</div>
+							Where xxx and yyy are the appropriate width/height.
+						</li>
+						<li>Add CSS styles and HTML as necessary.</li>
+					</ol>
+					<br>
+					<p><code>img-tiler.js</code> will render the unsliced image in the canvas with ID "c1," and the sliced image in the canvas with ID "c2". Slicing is done using the parameters from the inputs with IDs "rows" and "cols."</p>
+					<br>
+				</div>
+			</div>
+			<div class="jumbotron text-center head-title">
+			<h1><a href="https://github.com/eddotman/img-tiler.js">Get the code @ GitHub</a></h1>
+			</div>
+			<hr>
+			<div class="footer text-right">
+				<p>Created by <a href="http://www.edwardkim.name">Edward Kim</a></p>
+			</div>
 		</div>
 		<script src="js/jquery-2.0.3.min.js"></script>
 		<script src="js/img-tiler.js"></script>
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 	</body>
 </html>

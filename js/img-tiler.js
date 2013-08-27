@@ -4,10 +4,14 @@ $(document).ready(function() {
 	var ct1=c1.getContext("2d");
 	var img1=new Image();
 
+	var w0 =$("#c1").width();
+	var h0 =$("#c1").height();
+
 	img1.onload = function() {
-		ct1.drawImage(img1,0,0,500,400);	
+		ct1.drawImage(img1,0,0,w0,h0);
 	}
-	img1.src = "img/space.jpg";
+
+	img1.src = $("#img1").attr("src"); 
 	
 	$("#preview").click( function(){
 
@@ -32,8 +36,8 @@ $(document).ready(function() {
 
 		var ofs = 5;
 
-		for (var i = 0; i <= rows; i++) {
-			for (var j = 0; j <= cols; j++) {
+		for (var i = 0; i <= cols; i++) {
+			for (var j = 0; j <= rows; j++) {
 				ct2.drawImage(img1, i*wstep1, j*hstep1, wstep1, hstep1, i*wstep2, j*hstep2, wstep2-ofs, hstep2-ofs);
 			}
 		}
