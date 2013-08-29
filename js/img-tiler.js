@@ -11,8 +11,6 @@ $(document).ready(function() {
 		opacity: 0.3,
 		hasRotatingPoint:false,
 		lockRotation:true,
-		//lockMovementX:true,
-		//lockMovementY:true,
 		lockUniScaling:true,
 		fill:"white"
 	});
@@ -37,9 +35,6 @@ $(document).ready(function() {
 		var rows = $("#rows").val();
 		var cols = $("#cols").val();
 
-		var wstep = w / cols;
-		var hstep = h / rows;
-
 		var ofs = 5; //spacing between tiles
 		
 		var imgInstClip = new fabric.Image("img");
@@ -55,6 +50,9 @@ $(document).ready(function() {
 		var nHeight = ct2.getHeight() / cropH;
 		var nWidth = ct2.getWidth() / cropW;
 
+		var wstep = w / cols;
+		var hstep = h / rows;
+
 		$("#test").html(nTop + " " + nLeft + " " + nWidth + " " + nHeight);
 
 		imgInstClip.set({
@@ -67,8 +65,8 @@ $(document).ready(function() {
 			clipTo: function (ctx) { //clip image to a grid of spaced rectangles
 				for (var i = 0; i <= cols; i++) {
 					for (var j = 0; j <= rows; j++) {
-						var l = (-ct2.getWidth()/2) + (i*wstep) + ofs/2 + nLeft;
-						var t = (-ct2.getHeight()/2) + (j*hstep) + ofs/2 + nTop;
+						var l = (-nWidth/2) + (i*wstep) + ofs/2 - nLeft;
+						var t = (-nHeight/2) + (j*hstep) + ofs/2 - nTop;
 						var w = (wstep-ofs);
 						var h = (hstep-ofs);
 			      		ctx.rect(l, t, w, h);
