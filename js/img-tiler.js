@@ -53,8 +53,6 @@ $(document).ready(function() {
 		var wstep = w / cols;
 		var hstep = h / rows;
 
-		$("#test").html(nTop + " " + nLeft + " " + nWidth + " " + nHeight);
-
 		imgInstClip.set({
 			originX: "left", //coordinate base is at top-left
 			originY: "top",
