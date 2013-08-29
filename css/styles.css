@@ -5,9 +5,14 @@ body, p, h1, h2, h3 {
 	font-weight: 300;
 }
 
+.canvas {
+	margin: 0 auto;
+}
+
 canvas {
 	padding: 5px;
 	margin: 0 auto;
+	border: 1px #000000 solid;
 }
 
 pre {
@@ -25,6 +30,10 @@ pre {
 	border-radius: 0;
 	background: #101010;
 	color: #ffffff;
+}
+
+.head-highlight {
+	color: #f39c12;
 }
 
 .no-back {

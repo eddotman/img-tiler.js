@@ -1,29 +1,26 @@
 $(document).ready(function() {
 
-	var c1=document.getElementById("c1");
-	var ct1=c1.getContext("2d");
-	var img1=new Image();
+	var ct1 = new fabric.Canvas("c1", {
+		containerClass: "canvas"
+	});
+	var imgSrc = $("#img").attr("src");
 
-	var w0 =$("#c1").width();
-	var h0 =$("#c1").height();
-
-	img1.onload = function() {
-		ct1.drawImage(img1,0,0,w0,h0);
-	}
-
-	img1.src = $("#img1").attr("src"); 
+	var w0 = ct1.getWidth();
+	var h0 = ct1.getHeight();
+	
+	ct1.setBackgroundImage(imgSrc, function() {
+	  ct1.renderAll();
+	});
 	
 	$("#preview").click( function(){
 
-		var c2=document.getElementById("c2");
-		var ct2=c2.getContext("2d");
+		var ct2 = new fabric.StaticCanvas("c2");
+		ct2.clear();
 
-		var w1 = $("#img1").width();
-		var h1 = $("#img1").height();
-		var w2 = $("#c2").width();
-		var h2 = $("#c2").height();
-
-		ct2.clearRect(0,0,w1,w2);
+		var w1 = $("#img").width();
+		var h1 = $("#img").height();
+		var w2 = ct2.getWidth();
+		var h2 = ct2.getHeight();
 
 		var rows = $("#rows").val();
 		var cols = $("#cols").val();
@@ -36,11 +33,28 @@ $(document).ready(function() {
 
 		var ofs = 5;
 
-		for (var i = 0; i <= cols; i++) {
-			for (var j = 0; j <= rows; j++) {
-				ct2.drawImage(img1, i*wstep1, j*hstep1, wstep1, hstep1, i*wstep2, j*hstep2, wstep2-ofs, hstep2-ofs);
+		
+		var imgInstClip = new fabric.Image(img, {
+			originX: "left",
+			originY: "top",
+			top: 0,
+			left: 0,
+			height: ct2.getHeight(),
+			width: ct2.getWidth(),
+			clipTo: function (ctx) {
+				for (var i = 0; i <= cols; i++) {
+					for (var j = 0; j <= rows; j++) {
+						var l = (-ct2.getWidth()/2) + (i*wstep2) + ofs/2;
+						var t = (-ct2.getHeight()/2) + (j*hstep2) + ofs/2;
+			      		ctx.rect(l, t, wstep2-ofs, hstep2-ofs);
+		    		}
+				}
 			}
-		}
+		});
+		ct2.add(imgInstClip).renderAll();
+		//ct2.drawImage(img1, i*wstep1, j*hstep1, wstep1, hstep1, i*wstep2, j*hstep2, wstep2-ofs, hstep2-ofs);
+	
+		//ct2.renderAll();
 	});
 
 });
